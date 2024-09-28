@@ -199,3 +199,30 @@ if st.button("Submit"):
     st.write(f"Predicted Career Aspiration: {career_name}")
 
     st.success("Prediction made successfully!")
+
+ # ----------- Graphical Output 1: Bar chart of feature importance ----------- #
+    feature_names = [
+        'gender', 'part_time_job', 'absence_days', 'extracurricular_activities', 
+        'weekly_self_study_hours', 'math_score', 'history_score', 'physics_score', 
+        'chemistry_score', 'biology_score', 'english_score', 'geography_score'
+    ]
+    
+    # Example importance values (replace with actual model feature importances if available)
+    feature_importances = np.random.rand(len(feature_names))  # Example random importances
+    
+    fig, ax = plt.subplots()
+    ax.barh(feature_names, feature_importances, color='skyblue')
+    ax.set_xlabel('Importance')
+    ax.set_title('Feature Importance in Career Prediction')
+
+    # Display the bar chart
+    st.pyplot(fig)
+
+    # ----------- Graphical Output 2: Pie chart of career aspiration distribution ----------- #
+    career_counts = np.random.randint(1, 20, size=14)  # Example random counts for demo purposes
+    fig2, ax2 = plt.subplots()
+    ax2.pie(career_counts, labels=career_map.values(), autopct='%1.1f%%', startangle=90)
+    ax2.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
+
+    # Display the pie chart
+    st.pyplot(fig2)
