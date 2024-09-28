@@ -67,6 +67,7 @@ scaler = joblib.load(scaler_filename)
 st.title("Student Data Prediction Form")
 
 # Input fields
+id = st.slider("Student ID", 1, 1000, 1)
 gender = st.selectbox("Gender", ["Male", "Female"])
 part_time_job = st.selectbox("Part-Time Job", ["No", "Yes"])
 absence_days = st.slider("Absence Days", 0, 30, 5)
