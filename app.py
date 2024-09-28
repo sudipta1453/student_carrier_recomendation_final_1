@@ -121,7 +121,7 @@ import pandas as pd
 import joblib
 
 # Load your model and scaler (ensure these files are available in the same directory or provide the correct path)
-model_filename = 'career_aspiration_model.pkl'
+model_filename = 'voting_classifier_model.pkl'
 scaler_filename = 'scaler.pkl'
 
 # Load the trained model and scaler
