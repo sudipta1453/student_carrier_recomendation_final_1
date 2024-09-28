@@ -3,6 +3,7 @@ import pandas as pd
 import joblib
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 import numpy as np 
+import matplotlib.pyplot as plt
 
 # Load the trained model (ensure the model is in the same directory or provide the correct path)
 model_filename = 'voting_classifier_model.pkl'
