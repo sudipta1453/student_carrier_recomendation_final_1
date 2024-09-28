@@ -218,7 +218,7 @@ if st.button("Submit"):
     ax.set_title('Feature Importance in Career Prediction')
 
     # Display the bar chart
-    st.pyplot(fig)
+    st.pyplot(fig1) 
 
     # ----------- Graphical Output 2: Pie chart of career aspiration distribution ----------- #
     career_counts = np.random.randint(1, 20, size=14)  # Example random counts for demo purposes
@@ -247,7 +247,7 @@ if st.button("Submit"):
     ax.set_title(f'Predicted Career Growth for {career_name}')
 
     # Display the line chart
-    st.pyplot(fig)
+    st.pyplot(fig3)
 
      # ----------- Additional Growth Insights ----------- #
     # Simulate how grades impact career growth in each year
@@ -262,4 +262,40 @@ if st.button("Submit"):
     ax2.set_title(f'Adjusted Career Growth for {career_name} (Based on Grades)')
 
     # Display the second chart
-    st.pyplot(fig2)
+    st.pyplot(fig4)
+
+    # ----------- Career Growth Visualization ----------- #
+    # Simulate career growth over 5 years
+    years = np.arange(1, 6)  # 5 years
+    growth_factor = 1.05  # Assuming 5% growth per year
+    initial_salary = 50000  # Starting salary
+
+    # Simulate career growth based on study hours and grades
+    # Here we assume better grades and higher study hours result in better career growth
+    predicted_growth = [initial_salary * (growth_factor ** year) for year in years]
+
+    # Create a line chart for predicted career growth
+    fig, ax = plt.subplots()
+    ax.plot(years, predicted_growth, marker='o', linestyle='-', color='green')
+    ax.set_xlabel('Years')
+    ax.set_ylabel('Predicted Salary Growth ($)')
+    ax.set_title(f'Predicted Career Growth for {career_name}')
+
+    # Display the line chart
+    st.pyplot(fig5)
+
+    # ----------- Additional Growth Insights ----------- #
+    # Simulate how grades impact career growth in each year
+    grade_factor = (math_score + history_score + physics_score) / 300  # Scale between 0 and 1
+    adjusted_growth = [initial_salary * (growth_factor + grade_factor) ** year for year in years]
+
+    # Create a second line chart showing growth with grades considered
+    fig2, ax2 = plt.subplots()
+    ax2.plot(years, adjusted_growth, marker='o', linestyle='-', color='blue')
+    ax2.set_xlabel('Years')
+    ax2.set_ylabel('Adjusted Salary Growth ($)')
+    ax2.set_title(f'Adjusted Career Growth for {career_name} (Based on Grades)')
+
+    # Display the second chart
+    st.pyplot(fig6)
+
