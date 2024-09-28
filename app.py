@@ -131,6 +131,24 @@ scaler = joblib.load(scaler_filename)
 # Create Streamlit GUI for user input
 st.title("Student Data Prediction Form")
 
+# Career aspiration mapping
+career_map = {
+    0: 'Accountant',
+    1: 'Artist',
+    2: 'Banker',
+    3: 'Business Owner',
+    4: 'Construction Engineer',
+    5: 'Doctor',
+    6: 'Game Developer',
+    7: 'Government Officer',
+    8: 'Lawyer',
+    9: 'Social Network Studies',
+    10: 'Software Engineer',
+    11: 'Stock Investor',
+    12: 'Teacher',
+    13: 'Writer'
+}
+
 # Input fields (excluding career_aspiration since it is now the target)
 id = st.slider("Student ID", 1, 1000, 1)  # ID slider from 1 to 1000
 gender = st.selectbox("Gender", ["Male", "Female"])
@@ -167,12 +185,17 @@ if st.button("Submit"):
         'geography_score': [geography_score]
     })
 
+
     # Preprocess the input data using the same scaler that was used during training
     scaled_data = scaler.transform(input_data)
 
     # Make prediction for career aspiration
-    career_aspiration_prediction = loaded_model.predict(scaled_data)
+    career_aspiration_prediction = loaded_model.predict(scaled_data)[0]
+
+    # Map the numeric prediction to the corresponding career name
+    career_name = career_map.get(career_aspiration_prediction, "Unknown Career")
 
     # Display prediction result for career aspiration
-    st.write(f"Predicted Career Aspiration: {career_aspiration_prediction[0]}")
+    st.write(f"Predicted Career Aspiration: {career_name}")
+
     st.success("Prediction made successfully!")
