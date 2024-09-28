@@ -218,7 +218,7 @@ if st.button("Submit"):
     ax.set_title('Feature Importance in Career Prediction')
 
     # Display the bar chart
-    st.pyplot(fig1) 
+    st.pyplot(fig) 
 
     # ----------- Graphical Output 2: Pie chart of career aspiration distribution ----------- #
     career_counts = np.random.randint(1, 20, size=14)  # Example random counts for demo purposes
@@ -227,7 +227,7 @@ if st.button("Submit"):
     ax2.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
 
     # Display the pie chart
-    st.pyplot(fig2)
+    st.pyplot(fig1)
 
     # ----------- Career Growth Visualization ----------- #
     # Simulate career growth over 5 years
@@ -247,7 +247,7 @@ if st.button("Submit"):
     ax.set_title(f'Predicted Career Growth for {career_name}')
 
     # Display the line chart
-    st.pyplot(fig3)
+    st.pyplot(fig)
 
      # ----------- Additional Growth Insights ----------- #
     # Simulate how grades impact career growth in each year
@@ -262,7 +262,7 @@ if st.button("Submit"):
     ax2.set_title(f'Adjusted Career Growth for {career_name} (Based on Grades)')
 
     # Display the second chart
-    st.pyplot(fig4)
+    st.pyplot(fig1)
 
     # ----------- Career Growth Visualization ----------- #
     # Simulate career growth over 5 years
@@ -282,7 +282,7 @@ if st.button("Submit"):
     ax.set_title(f'Predicted Career Growth for {career_name}')
 
     # Display the line chart
-    st.pyplot(fig5)
+    st.pyplot(fig)
 
     # ----------- Additional Growth Insights ----------- #
     # Simulate how grades impact career growth in each year
@@ -297,5 +297,5 @@ if st.button("Submit"):
     ax2.set_title(f'Adjusted Career Growth for {career_name} (Based on Grades)')
 
     # Display the second chart
-    st.pyplot(fig6)
+    st.pyplot(fig1)
 
