@@ -51,16 +51,20 @@ if uploaded_file is not None:
 else:
     st.write("Please upload a CSV file to continue.") """
 
-import streamlit as st
+# import streamlit as st
 import pandas as pd
 import joblib
 
-# Load model and scaler (ensure these files are in the same directory or adjust the path)
-# loaded_model = joblib.load('voting_classifier_model.pkl')
-# scaler = joblib.load('scaler.pkl')
+# Load your model and scaler (ensure these files are available in the same directory or provide the correct path)
+model_filename = 'voting_classifier_model.pkl'
+scaler_filename = 'scaler.pkl'
 
-# Create Streamlit GUI
-st.title("Student Data Input Form")
+# Load the trained model and scaler
+loaded_model = joblib.load(model_filename)
+scaler = joblib.load(scaler_filename)
+
+# Create Streamlit GUI for user input
+st.title("Student Data Prediction Form")
 
 # Input fields
 gender = st.selectbox("Gender", ["Male", "Female"])
@@ -81,9 +85,9 @@ geography_score = st.slider("Geography Score", 0, 100, 70)
 # Career aspiration (assumed as a score for simplicity)
 career_aspiration = st.slider("Career Aspiration (1-10)", 1, 10, 5)
 
-# Data submission and model prediction (if model is available)
+# Data submission and prediction
 if st.button("Submit"):
-    # Data for prediction
+    # Convert user input into a DataFrame for the model
     input_data = pd.DataFrame({
         'gender': [1 if gender == "Male" else 0],
         'part_time_job': [1 if part_time_job == "Yes" else 0],
@@ -100,11 +104,12 @@ if st.button("Submit"):
         'career_aspiration': [career_aspiration]
     })
 
-    # st.write("Input Data:", input_data)
-    
-    # If a model is loaded, perform prediction
-    # scaled_data = scaler.transform(input_data)
-    # prediction = loaded_model.predict(scaled_data)
-    # st.write("Prediction:", prediction)
+    # Preprocess the input data using the same scaler that was used during training
+    scaled_data = scaler.transform(input_data)
 
-    st.success("Data submitted successfully!")
+    # Make prediction
+    prediction = loaded_model.predict(scaled_data)
+
+    # Display prediction result
+    st.write("Prediction Result:", prediction[0])  # Assuming the model predicts a single value
+    st.success("Prediction made successfully!")
