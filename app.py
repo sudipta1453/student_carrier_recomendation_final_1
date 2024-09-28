@@ -14,7 +14,7 @@ label_encoder = joblib.load('label_encoder.pkl')  # Ensure this is the same labe
 # Streamlit app title
 st.title("Career Recommendation Prediction")
 
-# Upload CSV file
+""" # Upload CSV file
 uploaded_file = st.file_uploader("Upload your CSV file", type="csv")
 
 if uploaded_file is not None:
@@ -49,4 +49,62 @@ if uploaded_file is not None:
     st.download_button(label="Download Predictions as CSV", data=csv, file_name='predictions.csv', mime='text/csv')
 
 else:
-    st.write("Please upload a CSV file to continue.")
+    st.write("Please upload a CSV file to continue.") """
+
+import streamlit as st
+import pandas as pd
+import joblib
+
+# Load model and scaler (ensure these files are in the same directory or adjust the path)
+# loaded_model = joblib.load('voting_classifier_model.pkl')
+# scaler = joblib.load('scaler.pkl')
+
+# Create Streamlit GUI
+st.title("Student Data Input Form")
+
+# Input fields
+gender = st.selectbox("Gender", ["Male", "Female"])
+part_time_job = st.selectbox("Part-Time Job", ["No", "Yes"])
+absence_days = st.slider("Absence Days", 0, 30, 5)
+extracurricular_activities = st.selectbox("Extracurricular Activities", ["No", "Yes"])
+weekly_self_study_hours = st.slider("Weekly Self-Study Hours", 0, 50, 10)
+
+# Subject scores
+math_score = st.slider("Math Score", 0, 100, 70)
+history_score = st.slider("History Score", 0, 100, 70)
+physics_score = st.slider("Physics Score", 0, 100, 70)
+chemistry_score = st.slider("Chemistry Score", 0, 100, 70)
+biology_score = st.slider("Biology Score", 0, 100, 70)
+english_score = st.slider("English Score", 0, 100, 70)
+geography_score = st.slider("Geography Score", 0, 100, 70)
+
+# Career aspiration (assumed as a score for simplicity)
+career_aspiration = st.slider("Career Aspiration (1-10)", 1, 10, 5)
+
+# Data submission and model prediction (if model is available)
+if st.button("Submit"):
+    # Data for prediction
+    input_data = pd.DataFrame({
+        'gender': [1 if gender == "Male" else 0],
+        'part_time_job': [1 if part_time_job == "Yes" else 0],
+        'absence_days': [absence_days],
+        'extracurricular_activities': [1 if extracurricular_activities == "Yes" else 0],
+        'weekly_self_study_hours': [weekly_self_study_hours],
+        'math_score': [math_score],
+        'history_score': [history_score],
+        'physics_score': [physics_score],
+        'chemistry_score': [chemistry_score],
+        'biology_score': [biology_score],
+        'english_score': [english_score],
+        'geography_score': [geography_score],
+        'career_aspiration': [career_aspiration]
+    })
+
+    # st.write("Input Data:", input_data)
+    
+    # If a model is loaded, perform prediction
+    # scaled_data = scaler.transform(input_data)
+    # prediction = loaded_model.predict(scaled_data)
+    # st.write("Prediction:", prediction)
+
+    st.success("Data submitted successfully!")
