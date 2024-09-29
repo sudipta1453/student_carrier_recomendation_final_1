@@ -644,7 +644,7 @@ career_details = {
 
 # Streamlit app
 def career_guidance_app():
-    st.set_page_config(page_title="Career Path Guidance", layout="wide")
+    #st.set_page_config(page_title="Career Path Guidance", layout="wide")
 
     # Sidebar with search and selection options
     st.sidebar.title("Career Guidance")
