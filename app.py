@@ -198,7 +198,7 @@ if st.button("Submit"):
     predicted_career_name = career_map.get(career_aspiration_prediction, "Unknown Career")
 
     # Display prediction result for career aspiration
-    st.write(f"Predicted Career Aspiration: {predicted_name}")
+    st.write(f"Predicted Career Aspiration: {predicted_career_name}")
 
     st.success("Prediction made successfully!")
 
