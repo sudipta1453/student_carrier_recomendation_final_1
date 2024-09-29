@@ -459,27 +459,83 @@ career_details = {
 # if __name__ == '__main__':
 #     career_guidance_app()
 
+# # Streamlit app
+# def career_guidance_app():
+#    # st.set_page_config(page_title="Career Path Guidance", layout="wide")
+
+#     # Sidebar for career selection
+#     st.sidebar.title("Career Guidance")
+#     st.sidebar.markdown("### Choose a Profession:")
+    
+#     # Career selection dropdown
+#     career_choice = st.sidebar.selectbox("Select a Career", list(career_details.keys()))
+    
+#     # Title and introduction
+#     st.title("Career Path Guidance")
+#     st.markdown("""
+#     Welcome to the Career Path Guidance app! Here, you can explore different career paths, understand the eligibility criteria, 
+#     subjects to focus on, and recommended colleges for each profession. Simply select a career from the sidebar to get started.
+#     """)
+    
+#     # Career information display
+#     if career_choice:
+#         # Displaying career details in a structured manner
+#         st.header(f"Path to Becoming a {career_choice}")
+        
+#         col1, col2 = st.columns(2)
+        
+#         with col1:
+#             st.subheader("Eligibility Criteria")
+#             st.write(career_details[career_choice]['eligibility'])
+        
+#         with col2:
+#             st.subheader("Recommended Subjects")
+#             st.write(", ".join(career_details[career_choice]['subjects']))
+        
+#         st.subheader("Top Recommended Colleges")
+#         st.write(", ".join(career_details[career_choice]['colleges']))
+        
+#         # Add a footer with additional information
+#         st.markdown("""
+#         **Note**: These are just examples of paths, and there are many different routes to success. 
+#         It is always best to research the specific requirements of your country or preferred institution.
+#         """)
+
+# # Run the Streamlit app
+# if __name__ == '__main__':
+#     career_guidance_app()
+
 # Streamlit app
 def career_guidance_app():
-   # st.set_page_config(page_title="Career Path Guidance", layout="wide")
+    #st.set_page_config(page_title="Career Path Guidance", layout="wide")
 
-    # Sidebar for career selection
+    # Sidebar with search and selection options
     st.sidebar.title("Career Guidance")
-    st.sidebar.markdown("### Choose a Profession:")
+    st.sidebar.markdown("### Choose or Search for a Profession:")
+
+    # Search bar in sidebar
+    search_input = st.sidebar.text_input("Search for a Career", "")
     
-    # Career selection dropdown
-    career_choice = st.sidebar.selectbox("Select a Career", list(career_details.keys()))
+    # Filter careers by search query
+    filtered_careers = {k: v for k, v in career_details.items() if search_input.lower() in k.lower()}
     
+    # If search returns results, show in dropdown; otherwise, use the full list
+    if filtered_careers:
+        career_choice = st.sidebar.selectbox("Careers Found", list(filtered_careers.keys()))
+    else:
+        career_choice = st.sidebar.selectbox("Careers", list(career_details.keys()))
+
     # Title and introduction
     st.title("Career Path Guidance")
     st.markdown("""
-    Welcome to the Career Path Guidance app! Here, you can explore different career paths, understand the eligibility criteria, 
-    subjects to focus on, and recommended colleges for each profession. Simply select a career from the sidebar to get started.
+    Welcome to the Career Path Guidance app! Explore various career paths, discover eligibility criteria, 
+    subjects to focus on, recommended colleges, salary ranges, career growth prospects, and job demand for each profession.
+    Simply select a career from the sidebar or search for one.
     """)
-    
+
     # Career information display
     if career_choice:
-        # Displaying career details in a structured manner
+        # Display career details in a structured manner
         st.header(f"Path to Becoming a {career_choice}")
         
         col1, col2 = st.columns(2)
@@ -493,7 +549,21 @@ def career_guidance_app():
             st.write(", ".join(career_details[career_choice]['subjects']))
         
         st.subheader("Top Recommended Colleges")
-        st.write(", ".join(career_details[career_choice]['colleges']))
+        colleges = career_details[career_choice]['colleges']
+        for college, url in colleges.items():
+            st.markdown(f"- [{college}]({url})")  # External links to college websites
+        
+        # Add salary range
+        st.subheader("Average Salary Range")
+        st.write(career_details[career_choice]['salary_range'])
+
+        # Add career growth prospects
+        st.subheader("Career Growth Prospects")
+        st.write(career_details[career_choice]['career_growth'])
+        
+        # Add job demand
+        st.subheader("Job Demand")
+        st.write(career_details[career_choice]['job_demand'])
         
         # Add a footer with additional information
         st.markdown("""
@@ -504,3 +574,5 @@ def career_guidance_app():
 # Run the Streamlit app
 if __name__ == '__main__':
     career_guidance_app()
+
+    
