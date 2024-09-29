@@ -886,7 +886,7 @@ career_details = {
 }
 
 # Example career prediction logic
-#predicted_career = "Software Engineer"  # This is an example of a predicted career
+predicted_career = career_name # This is an example of a predicted career
 
 # Streamlit app
 def career_guidance_app():
