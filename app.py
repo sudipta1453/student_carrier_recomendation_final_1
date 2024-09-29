@@ -435,25 +435,71 @@ career_details = {
     }
 }
 
+# # Streamlit app
+# def career_guidance_app():
+#     st.title("Career Path Guidance")
+    
+#     # Career selection dropdown
+#     career_choice = st.selectbox("Choose a Profession", list(career_details.keys()))
+    
+#     if career_choice:
+#         # Display career details
+#         st.header(f"Path to becoming a {career_choice}")
+        
+#         st.subheader("Eligibility Criteria")
+#         st.write(career_details[career_choice]['eligibility'])
+        
+#         st.subheader("Recommended Subjects")
+#         st.write(", ".join(career_details[career_choice]['subjects']))
+        
+#         st.subheader("Recommended Colleges")
+#         st.write(", ".join(career_details[career_choice]['colleges']))
+
+# # Run the Streamlit app
+# if __name__ == '__main__':
+#     career_guidance_app()
+
 # Streamlit app
 def career_guidance_app():
-    st.title("Career Path Guidance")
+    st.set_page_config(page_title="Career Path Guidance", layout="wide")
+
+    # Sidebar for career selection
+    st.sidebar.title("Career Guidance")
+    st.sidebar.markdown("### Choose a Profession:")
     
     # Career selection dropdown
-    career_choice = st.selectbox("Choose a Profession", list(career_details.keys()))
+    career_choice = st.sidebar.selectbox("Select a Career", list(career_details.keys()))
     
+    # Title and introduction
+    st.title("Career Path Guidance")
+    st.markdown("""
+    Welcome to the Career Path Guidance app! Here, you can explore different career paths, understand the eligibility criteria, 
+    subjects to focus on, and recommended colleges for each profession. Simply select a career from the sidebar to get started.
+    """)
+    
+    # Career information display
     if career_choice:
-        # Display career details
-        st.header(f"Path to becoming a {career_choice}")
+        # Displaying career details in a structured manner
+        st.header(f"Path to Becoming a {career_choice}")
         
-        st.subheader("Eligibility Criteria")
-        st.write(career_details[career_choice]['eligibility'])
+        col1, col2 = st.columns(2)
         
-        st.subheader("Recommended Subjects")
-        st.write(", ".join(career_details[career_choice]['subjects']))
+        with col1:
+            st.subheader("Eligibility Criteria")
+            st.write(career_details[career_choice]['eligibility'])
         
-        st.subheader("Recommended Colleges")
+        with col2:
+            st.subheader("Recommended Subjects")
+            st.write(", ".join(career_details[career_choice]['subjects']))
+        
+        st.subheader("Top Recommended Colleges")
         st.write(", ".join(career_details[career_choice]['colleges']))
+        
+        # Add a footer with additional information
+        st.markdown("""
+        **Note**: These are just examples of paths, and there are many different routes to success. 
+        It is always best to research the specific requirements of your country or preferred institution.
+        """)
 
 # Run the Streamlit app
 if __name__ == '__main__':
