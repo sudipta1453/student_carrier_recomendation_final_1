@@ -358,3 +358,103 @@ if st.button("Submit"):
 
     # Display the subplots
     st.pyplot(fig)
+
+    import streamlit as st
+
+# Career Map with details on criteria, subjects, and colleges
+career_details = {
+    'Accountant': {
+        'eligibility': "Bachelor's degree in Accounting or related field",
+        'subjects': ["Accounting", "Finance", "Taxation", "Economics"],
+        'colleges': ["University of Chicago", "Harvard University", "Stanford University"]
+    },
+    'Artist': {
+        'eligibility': "Bachelor's degree in Fine Arts or relevant experience",
+        'subjects': ["Visual Arts", "Art History", "Digital Art", "Sculpture"],
+        'colleges': ["Rhode Island School of Design", "California Institute of the Arts", "School of the Art Institute of Chicago"]
+    },
+    'Banker': {
+        'eligibility': "Bachelor's degree in Finance or Business Administration",
+        'subjects': ["Finance", "Economics", "Banking", "Business Law"],
+        'colleges': ["Wharton School of the University of Pennsylvania", "London School of Economics", "MIT Sloan"]
+    },
+    'Business Owner': {
+        'eligibility': "No formal requirements, but MBA is recommended",
+        'subjects': ["Business Management", "Marketing", "Entrepreneurship", "Finance"],
+        'colleges': ["Harvard Business School", "Stanford Graduate School of Business", "INSEAD"]
+    },
+    'Construction Engineer': {
+        'eligibility': "Bachelor's degree in Civil Engineering or Construction Management",
+        'subjects': ["Civil Engineering", "Construction Technology", "Project Management", "Structural Engineering"],
+        'colleges': ["Massachusetts Institute of Technology (MIT)", "Stanford University", "University of California, Berkeley"]
+    },
+    'Doctor': {
+        'eligibility': "MBBS or equivalent, followed by specialization",
+        'subjects': ["Biology", "Chemistry", "Physics", "Anatomy", "Medical Science"],
+        'colleges': ["Harvard Medical School", "Johns Hopkins University", "Mayo Clinic Alix School of Medicine"]
+    },
+    'Game Developer': {
+        'eligibility': "Bachelor's degree in Computer Science or Game Design",
+        'subjects': ["Programming", "Game Design", "Graphics", "AI for Games"],
+        'colleges': ["University of Southern California", "Carnegie Mellon University", "DigiPen Institute of Technology"]
+    },
+    'Government Officer': {
+        'eligibility': "Bachelor's degree and pass civil services examination",
+        'subjects': ["Public Administration", "Political Science", "Law", "Economics"],
+        'colleges': ["Indian Institutes of Public Administration", "London School of Economics", "Harvard University"]
+    },
+    'Lawyer': {
+        'eligibility': "Bachelor's degree in Law (LLB), followed by bar examination",
+        'subjects': ["Law", "Constitutional Law", "Criminal Law", "Civil Law"],
+        'colleges': ["Harvard Law School", "Yale Law School", "Stanford Law School"]
+    },
+    'Social Network Studies': {
+        'eligibility': "Bachelor's degree in Media Studies or Sociology",
+        'subjects': ["Sociology", "Media Studies", "Communication", "Psychology"],
+        'colleges': ["University of California, Berkeley", "Stanford University", "Columbia University"]
+    },
+    'Software Engineer': {
+        'eligibility': "Bachelor's degree in Computer Science or Software Engineering",
+        'subjects': ["Computer Science", "Software Development", "Data Structures", "Algorithms"],
+        'colleges': ["Massachusetts Institute of Technology (MIT)", "Stanford University", "Carnegie Mellon University"]
+    },
+    'Stock Investor': {
+        'eligibility': "Bachelor's degree in Finance or Economics, certifications like CFA",
+        'subjects': ["Finance", "Economics", "Stock Markets", "Investment Analysis"],
+        'colleges': ["Wharton School of the University of Pennsylvania", "London School of Economics", "Harvard University"]
+    },
+    'Teacher': {
+        'eligibility': "Bachelor's degree in Education or specialization in a subject",
+        'subjects': ["Education", "Pedagogy", "Psychology", "Subject Specialization"],
+        'colleges': ["University of Oxford", "Harvard Graduate School of Education", "Stanford University"]
+    },
+    'Writer': {
+        'eligibility': "Bachelor's degree in Literature, Creative Writing, or Journalism",
+        'subjects': ["Creative Writing", "Literature", "Journalism", "Communications"],
+        'colleges': ["Iowa Writers' Workshop", "Columbia University", "University of Cambridge"]
+    }
+}
+
+# Streamlit app
+def career_guidance_app():
+    st.title("Career Path Guidance")
+    
+    # Career selection dropdown
+    career_choice = st.selectbox("Choose a Profession", list(career_details.keys()))
+    
+    if career_choice:
+        # Display career details
+        st.header(f"Path to becoming a {career_choice}")
+        
+        st.subheader("Eligibility Criteria")
+        st.write(career_details[career_choice]['eligibility'])
+        
+        st.subheader("Recommended Subjects")
+        st.write(", ".join(career_details[career_choice]['subjects']))
+        
+        st.subheader("Recommended Colleges")
+        st.write(", ".join(career_details[career_choice]['colleges']))
+
+# Run the Streamlit app
+if __name__ == '__main__':
+    career_guidance_app()
