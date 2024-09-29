@@ -998,7 +998,35 @@ career_map = {
     13: 'Writer'
 }
 
-# Career details dictionary
+# # Career details dictionary
+# career_details = {
+#     'Accountant': {
+#         'eligibility': "Bachelor's degree in Accounting or related field",
+#         'subjects': ["Accounting", "Finance", "Taxation", "Economics"],
+#         'colleges': {
+#             "University of Chicago": "https://www.uchicago.edu",
+#             "Harvard University": "https://www.harvard.edu",
+#             "Stanford University": "https://www.stanford.edu"
+#         },
+#         'salary': "$50,000 - $100,000 per year",
+#         'growth': "Stable growth with advancements in financial technology",
+#         'demand': "Moderate demand, especially for certified professionals"
+#     },
+#     'Software Engineer': {
+#         'eligibility': "Bachelor's degree in Computer Science or Software Engineering",
+#         'subjects': ["Computer Science", "Software Development", "Data Structures", "Algorithms"],
+#         'colleges': {
+#             "MIT": "https://www.csail.mit.edu",
+#             "Stanford University": "https://cs.stanford.edu",
+#             "Carnegie Mellon University": "https://www.cs.cmu.edu"
+#         },
+#         'salary': "$80,000 - $180,000 per year",
+#         'growth': "Rapid growth due to increasing demand for software solutions",
+#         'demand': "Extremely high demand, especially in AI, cybersecurity, and cloud computing"
+#     },
+#     # Add more career details here...
+# }
+# Career details dictionary with more career paths
 career_details = {
     'Accountant': {
         'eligibility': "Bachelor's degree in Accounting or related field",
@@ -1012,6 +1040,114 @@ career_details = {
         'growth': "Stable growth with advancements in financial technology",
         'demand': "Moderate demand, especially for certified professionals"
     },
+    'Artist': {
+        'eligibility': "Bachelor's degree in Fine Arts or relevant experience",
+        'subjects': ["Visual Arts", "Art History", "Digital Art", "Sculpture"],
+        'colleges': {
+            "Rhode Island School of Design": "https://www.risd.edu",
+            "California Institute of the Arts": "https://www.calarts.edu",
+            "School of the Art Institute of Chicago": "https://www.saic.edu"
+        },
+        'salary': "$30,000 - $70,000 per year",
+        'growth': "Moderate, growth driven by digital art and online media",
+        'demand': "Variable demand, high in digital sectors"
+    },
+    'Banker': {
+        'eligibility': "Bachelor's degree in Finance or Business Administration",
+        'subjects': ["Finance", "Economics", "Banking", "Business Law"],
+        'colleges': {
+            "Wharton School of the University of Pennsylvania": "https://www.wharton.upenn.edu",
+            "London School of Economics": "https://www.lse.ac.uk",
+            "MIT Sloan": "https://mitsloan.mit.edu"
+        },
+        'salary': "$60,000 - $150,000 per year",
+        'growth': "High growth in investment banking and fintech sectors",
+        'demand': "High demand for investment and risk management roles"
+    },
+    'Business Owner': {
+        'eligibility': "No formal requirements, but an MBA is recommended",
+        'subjects': ["Business Management", "Marketing", "Entrepreneurship", "Finance"],
+        'colleges': {
+            "Harvard Business School": "https://www.hbs.edu",
+            "Stanford Graduate School of Business": "https://www.gsb.stanford.edu",
+            "INSEAD": "https://www.insead.edu"
+        },
+        'salary': "Varies widely depending on business success",
+        'growth': "High potential for growth but high risk as well",
+        'demand': "Entrepreneurship is growing in the digital and tech sectors"
+    },
+    'Construction Engineer': {
+        'eligibility': "Bachelor's degree in Civil Engineering or Construction Management",
+        'subjects': ["Civil Engineering", "Construction Technology", "Project Management", "Structural Engineering"],
+        'colleges': {
+            "MIT": "https://www.mit.edu",
+            "Stanford University": "https://www.stanford.edu",
+            "University of California, Berkeley": "https://www.berkeley.edu"
+        },
+        'salary': "$70,000 - $120,000 per year",
+        'growth': "Steady growth as infrastructure projects increase",
+        'demand': "High demand due to urban development and infrastructure projects"
+    },
+    'Doctor': {
+        'eligibility': "MBBS or equivalent, followed by specialization",
+        'subjects': ["Biology", "Chemistry", "Physics", "Anatomy", "Medical Science"],
+        'colleges': {
+            "Harvard Medical School": "https://meded.hms.harvard.edu",
+            "Johns Hopkins University": "https://www.hopkinsmedicine.org",
+            "Mayo Clinic Alix School of Medicine": "https://college.mayo.edu"
+        },
+        'salary': "$150,000 - $300,000 per year",
+        'growth': "Strong growth due to aging population and healthcare demand",
+        'demand': "Very high demand, especially for specialized fields"
+    },
+    'Game Developer': {
+        'eligibility': "Bachelor's degree in Computer Science or Game Design",
+        'subjects': ["Programming", "Game Design", "Graphics", "AI for Games"],
+        'colleges': {
+            "University of Southern California": "https://www.usc.edu",
+            "Carnegie Mellon University": "https://www.cmu.edu",
+            "DigiPen Institute of Technology": "https://www.digipen.edu"
+        },
+        'salary': "$60,000 - $120,000 per year",
+        'growth': "Fast growth in mobile, AR, VR, and console gaming",
+        'demand': "High demand, especially in indie game development and VR/AR"
+    },
+    'Government Officer': {
+        'eligibility': "Bachelor's degree and pass civil services examination",
+        'subjects': ["Public Administration", "Political Science", "Law", "Economics"],
+        'colleges': {
+            "Indian Institute of Public Administration": "https://www.iipa.org.in",
+            "London School of Economics": "https://www.lse.ac.uk",
+            "Harvard University": "https://www.harvard.edu"
+        },
+        'salary': "$50,000 - $120,000 per year (depending on rank and role)",
+        'growth': "Stable, with advancement through ranks",
+        'demand': "High demand, especially for roles in public policy and administration"
+    },
+    'Lawyer': {
+        'eligibility': "Bachelor's degree in Law (LLB), followed by bar examination",
+        'subjects': ["Law", "Constitutional Law", "Criminal Law", "Civil Law"],
+        'colleges': {
+            "Harvard Law School": "https://hls.harvard.edu",
+            "Yale Law School": "https://law.yale.edu",
+            "Stanford Law School": "https://law.stanford.edu"
+        },
+        'salary': "$70,000 - $200,000 per year",
+        'growth': "Moderate growth with specialization in corporate, environmental, or tech law",
+        'demand': "High demand for corporate lawyers, IP lawyers, and environmental lawyers"
+    },
+    'Social Network Studies': {
+        'eligibility': "Bachelor's degree in Media Studies or Sociology",
+        'subjects': ["Sociology", "Media Studies", "Communication", "Psychology"],
+        'colleges': {
+            "University of California, Berkeley": "https://www.berkeley.edu",
+            "Stanford University": "https://www.stanford.edu",
+            "Columbia University": "https://www.columbia.edu"
+        },
+        'salary': "$40,000 - $90,000 per year",
+        'growth': "Growing with the rise of social media and digital communities",
+        'demand': "High demand for roles in social media analysis, online communities, and digital marketing"
+    },
     'Software Engineer': {
         'eligibility': "Bachelor's degree in Computer Science or Software Engineering",
         'subjects': ["Computer Science", "Software Development", "Data Structures", "Algorithms"],
@@ -1024,7 +1160,42 @@ career_details = {
         'growth': "Rapid growth due to increasing demand for software solutions",
         'demand': "Extremely high demand, especially in AI, cybersecurity, and cloud computing"
     },
-    # Add more career details here...
+    'Stock Investor': {
+        'eligibility': "Bachelor's degree in Finance or Economics, certifications like CFA",
+        'subjects': ["Finance", "Economics", "Stock Markets", "Investment Analysis"],
+        'colleges': {
+            "Wharton School of the University of Pennsylvania": "https://www.wharton.upenn.edu",
+            "London School of Economics": "https://www.lse.ac.uk",
+            "Harvard University": "https://www.harvard.edu"
+        },
+        'salary': "Varies widely, high earnings potential based on investments",
+        'growth': "High growth potential but highly volatile",
+        'demand': "Moderate demand, especially for certified financial analysts"
+    },
+    'Teacher': {
+        'eligibility': "Bachelor's degree in Education or specialization in a subject",
+        'subjects': ["Education", "Pedagogy", "Psychology", "Subject Specialization"],
+        'colleges': {
+            "University of Oxford": "https://www.ox.ac.uk",
+            "Harvard Graduate School of Education": "https://www.gse.harvard.edu",
+            "Stanford University": "https://www.stanford.edu"
+        },
+        'salary': "$40,000 - $70,000 per year",
+        'growth': "Stable, with opportunities to specialize or move into administration",
+        'demand': "High demand, especially in STEM subjects and special education"
+    },
+    'Writer': {
+        'eligibility': "Bachelor's degree in Literature, Creative Writing, or Journalism",
+        'subjects': ["Creative Writing", "Literature", "Journalism", "Communications"],
+        'colleges': {
+            "Iowa Writers' Workshop": "https://writersworkshop.uiowa.edu",
+            "Columbia University": "https://www.columbia.edu",
+            "University of Cambridge": "https://www.cam.ac.uk"
+        },
+        'salary': "$30,000 - $100,000 per year",
+        'growth': "Moderate growth with increasing digital content opportunities",
+        'demand': "High demand for content creators, journalists, and technical writers"
+    }
 }
 
 # Streamlit app for user input
