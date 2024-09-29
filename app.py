@@ -711,7 +711,7 @@ if st.button("Submit"):
 import streamlit as st
 
 # Set page configuration at the very beginning of the script
-st.set_page_config(page_title="Career Path Guidance", layout="wide")
+#st.set_page_config(page_title="Career Path Guidance", layout="wide")
 
 # Updated Career Map with salary ranges, growth, and job demand for all professions
 career_details = {
