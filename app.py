@@ -195,10 +195,10 @@ if st.button("Submit"):
     career_aspiration_prediction = loaded_model.predict(scaled_data)[0]
 
     # Map the numeric prediction to the corresponding career name
-    career_name = career_map.get(career_aspiration_prediction, "Unknown Career")
+    predicted_career_name = career_map.get(career_aspiration_prediction, "Unknown Career")
 
     # Display prediction result for career aspiration
-    st.write(f"Predicted Career Aspiration: {career_name}")
+    st.write(f"Predicted Career Aspiration: {predicted_name}")
 
     st.success("Prediction made successfully!")
 
