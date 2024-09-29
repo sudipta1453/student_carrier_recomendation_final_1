@@ -318,7 +318,7 @@ if st.button("Submit"):
 
     # Chart 1: Predicted career growth (line chart)
     axes[0, 0].plot(years, predicted_growth, marker='o', linestyle='-', color='green')
-    axes[0, 0].set_title(f'Predicted Career Growth for {career_name}')
+    axes[0, 0].set_title(f'Predicted Career Growth for {predicted_career_name}')
     axes[0, 0].set_xlabel('Years')
     axes[0, 0].set_ylabel('Predicted Salary Growth ($)')
 
