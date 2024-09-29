@@ -1051,6 +1051,7 @@ geography_score = st.slider("Geography Score", 0, 100, 70)
 if st.button("Submit"):
     # Convert user input into a DataFrame for the model
     input_data = pd.DataFrame({
+        'id':[Student ID],
         'gender': [1 if gender == "Male" else 0],
         'part_time_job': [1 if part_time_job == "Yes" else 0],
         'absence_days': [absence_days],
