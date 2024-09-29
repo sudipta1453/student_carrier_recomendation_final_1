@@ -1031,7 +1031,7 @@ career_details = {
 st.title("Student Career Prediction and Guidance")
 
 # Input fields (these will be used to predict the career)
- id = st.slider("Student ID", 1, 1000, 1)  # ID slider from 1 to 1000
+id = st.slider("Student ID", 1, 1000, 1)  # ID slider from 1 to 1000
 gender = st.selectbox("Gender", ["Male", "Female"])
 part_time_job = st.selectbox("Part-Time Job", ["No", "Yes"])
 absence_days = st.slider("Absence Days", 0, 30, 5)
