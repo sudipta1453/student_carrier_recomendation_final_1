@@ -931,6 +931,40 @@ def career_guidance_app():
     else:
         st.write("Career details not available for the predicted career.")
 
-# Run the Streamlit app
+
+
+# Fetch and display career guidance details
+    if predicted_career_name in career_details:
+        career_info = career_details[predicted_career_name]
+        
+        st.header(f"Career Path for {predicted_career_name}")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.subheader("Eligibility Criteria")
+            st.write(career_info['eligibility'])
+        
+        with col2:
+            st.subheader("Recommended Subjects")
+            st.write(", ".join(career_info['subjects']))
+        
+        st.subheader("Top Recommended Colleges")
+        colleges = career_info['colleges']
+        for college, url in colleges.items():
+            st.markdown(f"- [{college}]({url})")  # External links to college websites
+        
+        # Display additional metrics: salary, growth, demand
+        st.subheader("Career Metrics")
+        
+        st.markdown(f"**Average Salary Range**: {career_info['salary']}")
+        st.markdown(f"**Career Growth**: {career_info['growth']}")
+        st.markdown(f"**Job Demand**: {career_info['demand']}")
+        
+        st.success("Career details fetched successfully!")
+    else:
+        st.error("Career details not available.")
+
+        # Run the Streamlit app
 if __name__ == '__main__':
     career_guidance_app()
